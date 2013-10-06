@@ -1,4 +1,6 @@
 Marathonrunnerphotos::Application.routes.draw do
+  get "test_branch/brad"
+
   get "main/tester"
 
   # The priority is based upon order of creation:
