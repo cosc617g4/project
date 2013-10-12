@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131012180304) do
+ActiveRecord::Schema.define(:version => 20131012181613) do
+
+  create_table "functions", :force => true do |t|
+    t.string "functions"
+  end
 
   create_table "marathons", :force => true do |t|
     t.string  "name"
@@ -20,6 +24,14 @@ ActiveRecord::Schema.define(:version => 20131012180304) do
     t.string  "state"
     t.string  "country"
     t.decimal "distance"
+  end
+
+  create_table "privacy_categories", :force => true do |t|
+    t.string "category"
+  end
+
+  create_table "privacy_settings", :force => true do |t|
+    t.string "setting"
   end
 
 end
