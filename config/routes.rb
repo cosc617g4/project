@@ -1,4 +1,6 @@
 Marathonrunnerphotos::Application.routes.draw do
+  get "test_branch_controller_manish/manish"
+
   get "test_branch/brad"
 
   get "main/tester"
