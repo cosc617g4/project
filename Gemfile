@@ -21,7 +21,7 @@ group :assets do
   gem 'twitter-bootstrap-rails'
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'devise', '1.1.rc0'
+  gem 'devise', github: 'plataformatec/devise'
 end
 
 gem 'jquery-rails'

@@ -1,4 +1,7 @@
 Marathonrunnerphotos::Application.routes.draw do
+
+  devise_for :users
+
   get "index/login"
 
   get "test_branch_controller_manish/manish"
