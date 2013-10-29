@@ -60,5 +60,7 @@ module Marathonrunnerphotos
     config.assets.version = '1.0'
     
     config.assets.initialize_on_precompile = false
+    
+    config.action_view.javascript_expansions[:defaults] = %w(jquery.min jquery_ujs)
   end
 end
