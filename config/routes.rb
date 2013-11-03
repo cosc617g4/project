@@ -1,5 +1,8 @@
 Marathonrunnerphotos::Application.routes.draw do
 
+  resources :photos
+
+
   devise_for :users
 
   get "index/login"
