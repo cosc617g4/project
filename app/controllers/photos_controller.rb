@@ -2,6 +2,7 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   #
+
   
   def index
     @photos = Photo.all
@@ -30,23 +31,28 @@ class PhotosController < ApplicationController
   # GET /photos/new
   # GET /photos/new.json
   def new
-   
-    @photo = Photo.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @photo }
-    end
-  
-    end
+    if user_signed_in?
+      @photo = Photo.new
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @photo }
+      end
+    else
+    redirect_to "/users/sign_in"
+  end  
+  end
     
  
 
   # GET /photos/1/edit
   def edit
+  if user_signed_in?
     @photo = Photo.find(params[:id])
+   else
+     redirect_to "/users/sign_in" 
+   end  
   end
-
+  
   # POST /photos
   # POST /photos.json
   def create
@@ -79,6 +85,17 @@ class PhotosController < ApplicationController
     end
   end
 
+  def myphotos
+    if user_signed_in?
+   @photos = Photo.all
+   # @photos = Photo.find_by_user_id(current_user.id)
+  # @photos = Photo.find(:all)
+  else
+     redirect_to "/users/sign_in" 
+   end  
+  end
+  
+
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
@@ -90,4 +107,6 @@ class PhotosController < ApplicationController
       format.json { head :no_content }
     end
   end
-end
+  end
+
+
