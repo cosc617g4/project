@@ -1,6 +1,10 @@
 Marathonrunnerphotos::Application.routes.draw do
 
-  resources :photos
+  resources :photos do
+    collection do
+      get :myphotos
+    end
+  end
 
 
   devise_for :users
@@ -12,6 +16,8 @@ Marathonrunnerphotos::Application.routes.draw do
   get "test_branch/brad"
 
   get "main/tester"
+  
+  get "photos/perphotos"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
