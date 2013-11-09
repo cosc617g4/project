@@ -1,0 +1,83 @@
+/* CSS Document */
+body{padding:0px; margin:17px 0 0; font:14px/18px Arial, Helvetica, sans-serif;}
+div, p, ul, li, h1, h2, h3, h4{padding:0px; margin:0px;}
+ul{list-style-type:none;}
+
+/*----MAIN PANEL----*/
+#mainPan{width:778px; position:relative; margin:0 auto;}
+
+/*----TOP PANEL----*/
+#topPan{width:778px; height:150px; position:relative; margin:0 auto;} 
+
+/* logo */
+#topPan img{width:180px; height:80px; position:absolute; top:48px; left:0px;}
+
+/* top menu */
+#topPan ul{width:500px; height:16px; display:block; position:absolute; top:90px; left:220px;}
+#topPan ul li{width:100px; height:20px; float:left; }
+#topPan ul li a{width:47px; height:16px; display:block; background:url(image-path("arrow3.gif")) 0 6px no-repeat #fff; color:#5A5A5A; font-size:18px; text-decoration:none; padding:0 0 0 12px;}
+#topPan ul li a:hover{background:url(image-path("arrow4.gif")) 0 6px no-repeat #fff; color:#5A5A5A; text-decoration:none;}
+
+/* "Sign in" at the top */
+#topPan span {position: absolute; right: 0; color:#5A5A5A;}
+#topPan span a:hover{text-decoration:none;}
+
+
+/*----SIDE MENU ----*/
+
+/* if you don't use a side menu use this to add the left margin*/
+#no_sidebar {
+	float : left;
+	width : 160px;
+	margin : 0 10px 0 0;
+	padding : 5px;
+}
+/* side bar */
+#sidebar {
+	float : left;
+	width : 160px;
+	margin : 0 10px 0 0;
+	padding : 5px;
+	color : #333;
+
+			/*SIDE MENU*/
+  .sidemenu ul {
+    list-style-type : none;
+    text-align : left;
+  }
+  .sidemenu ul li {
+    display : block;
+    color : #666;
+    background : inherit;
+  }
+  .sidemenu ul li a {
+    padding-left : 15px;
+    font : normal 11px "Lucida Grande", "Lucida Sans Unicode", verdana, lucida, sans-serif;
+    text-decoration : none;
+    color : #000;
+  } 
+  .sidemenu ul li a:hover {
+    color : #666; 
+  }
+  .sidemenu ul li a#current {
+    color : #666;
+  }
+}
+
+/* CONTENT */
+#content {
+  margin : 0 0 5px 170px;
+  padding : 5px;
+  background : inherit;
+  color : #333;
+}
+  #content a:link, #content a:visited {
+  text-decoration : underline;
+  background : inherit;
+  color : #417C2C;
+}
+#content a:hover {
+  background : inherit;
+  color : #91AE00;
+}
+
