@@ -1,4 +1,39 @@
-<h1>Trainings#index</h1>
-<%= @trainings.each do |training| %>
-<%= training.date %>
+<% if user_signed_in? %> <!-- Do nothing the user is signed in so he doesn't need to be redirected -->
+<% else %>
+<% redirect_to new_user_session_path %>
 <% end %>
+
+<table border="1" cellpadding="2">
+	<!-- add table headers -->
+	<tr>
+		<th>Date</th>
+		<th>Time Spent</th>
+		<th>Distance (Miles)</th>
+		<th>Description</th>
+		<th></th>
+		<th></th>
+	</tr>
+
+	<% @trainings.each do |training| %>
+	<tr>
+		<td> <%= training.date %> </td>
+
+		<!-- Need to perform a check to see if the minutes are less than 10. If they are we must add a 0 to before the training.minutes 
+			so that it will display as 1:04 instead of 1:4 -->
+		<td> 
+			<%= training.hours %>:
+			<% if (training.minutes < 10) %>
+			0<%= training.minutes %>
+			<% else %>
+			<%= training.minutes %>
+			<% end %> 
+		</td>
+		<td> <%= training.distance %> </td>
+		<td> <%= training.description %> </td>
+		<td> <%= link_to 'Edit', edit_training_path(training) %> </td>
+		<td> <%= link_to 'Delete', training, method: :delete %> </td>
+	</tr>
+	<% end %>
+</table>
+
+<%= link_to 'Add New Training Entry', new_training_path %>

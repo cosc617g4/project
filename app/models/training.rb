@@ -1,5 +1,5 @@
 class Training < ActiveRecord::Base
-  attr_accessible :date, :description, :time_spent, :user_id
+  attr_accessible :date, :description, :user_id, :distance, :hours, :minutes
   
   belongs_to :user
 end
