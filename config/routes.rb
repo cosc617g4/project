@@ -1,5 +1,12 @@
 Marathonrunnerphotos::Application.routes.draw do
-
+  
+  # for friend function
+  get "friendship/index"
+  get "friendship/new"
+  get "friendship/show"
+  get "friendship/confirm"
+  get "friendship/confirm"
+  
   resources :photos do
     collection do
       get :myphotos
@@ -18,6 +25,8 @@ Marathonrunnerphotos::Application.routes.draw do
   get "main/tester"
   
   get "photos/perphotos"
+  
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -74,5 +83,5 @@ Marathonrunnerphotos::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+   match ':controller(/:action(/:id))(.:format)'
 end

@@ -1,0 +1,29 @@
+<div id="sidebar">
+	<h2>Friends</h2>
+    <div class="sidemenu">
+      <ul>
+        <li><%= link_to "Add friend", {:action => "new"}%></li>
+        <li><%= link_to "Delete friend", {:action => "show"}%></li>
+        <li><%= link_to "Friend list", {:action => "index"}%></li>
+      </ul>
+    </div>
+</div>
+<div id="content">
+<table>
+<tr>
+	<th>First name</th>
+	<th>Last name</th>
+	<th>Email</th>
+</tr>
+
+<% for friend in @friends %>
+<tr>
+	<td><%= friend.first_name %></td>
+	<td><%= friend.last_name %></td>
+	<td><%= friend.email %></td>
+	<td><%= link_to "Delete", {:controller => :friendship, :action => :destroy, :friend_id => friend.id, :method => :post} %></td>
+</tr>
+<% end %>
+
+</table>
+</div>

@@ -1,0 +1,35 @@
+<div id="sidebar">
+	<h2>Friends</h2>
+    <div class="sidemenu">
+      <ul>
+        <li><%= link_to "Add friend", {:action => "new"}%></li>
+        <li><%= link_to "Delete friend", {:action => "show"}%></li>
+        <li><%= link_to "Friend list", {:action => "index"}%></li>
+      </ul>
+    </div>
+</div>
+<div id="content">
+<%= form_tag(:controller => "friendship", :action => "search") do %>
+	<%= label_tag(:search_email, "Search friend: ") %>
+	<%= text_field_tag :search_email, nil, :placeholder => "Email address" %>
+	<%= submit_tag("Search") %>
+<% end %>
+
+<% if @results %>
+<table>
+	<tr>
+		<th>First name</th>
+		<th>Last name</th>
+		<th>Email</th>
+	</tr>
+	<% for result in @results %>
+	<tr>
+		<td><%= result.first_name %></td>
+		<td><%= result.last_name %></td>
+		<td><%= result.email %></td>
+		<td><%= link_to "Add friend", {:controller => :friendship, :action => :create, :friend_id => result.id, :method => :post} %></td>
+	</tr>
+	<% end %>
+</table>
+<% end %>
+</div>
