@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20131111182229) do
 
   create_table "friendships", :force => true do |t|
@@ -64,6 +65,17 @@ ActiveRecord::Schema.define(:version => 20131111182229) do
     t.string "setting"
   end
 
+  create_table "trainings", :force => true do |t|
+    t.date     "date"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "distance"
+    t.integer  "hours"
+    t.integer  "minutes"
+  end
+
   create_table "user_comments", :force => true do |t|
     t.integer "from_user_id"
     t.integer "to_user_id"
@@ -91,13 +103,6 @@ ActiveRecord::Schema.define(:version => 20131111182229) do
     t.integer "user_id"
     t.integer "category_id"
     t.integer "setting_id"
-  end
-
-  create_table "user_training", :force => true do |t|
-    t.integer "user_id"
-    t.date    "Date"
-    t.string  "Detail"
-    t.string  "category"
   end
 
   create_table "users", :force => true do |t|

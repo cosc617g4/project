@@ -1,4 +1,5 @@
 Marathonrunnerphotos::Application.routes.draw do
+
   
   # for friend function
   get "friendship/index"
@@ -7,11 +8,40 @@ Marathonrunnerphotos::Application.routes.draw do
   get "friendship/confirm"
   get "friendship/confirm"
   
+
+
+  get "trainings/index"
+
+  get "trainings/new"
+
+  get "trainings/edit"
+
+  get "trainings/update"
+
+  get "trainings/show"
+
+  get "training/index"
+
+  get "training/show"
+
+  get "training/edit"
+
+  get "training/new"
+
+  get "index/new"
+
+  get "index/edit"
+
+  get "index/show"
+
+
   resources :photos do
     collection do
       get :myphotos
     end
   end
+  
+  resources :trainings
 
 
   devise_for :users

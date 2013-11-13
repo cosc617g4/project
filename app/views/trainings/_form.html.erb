@@ -1,0 +1,44 @@
+<%= form_for(@training) do |t| %>
+<% if @training.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@training.errors.count, "error") %> prohibited this training from being saved:</h2>
+	<ul>
+		<% @training.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<%= t.label :date, "Date of Training:" %>
+<%= t.date_select(:date, :order => [:month, :day, :year]) %>
+
+</br>
+Time Spent Training:
+<table>
+	<tr>
+		<td><%= t.label :hours, "Hours"%></td>
+		<td><%= t.label :minutes, "Minutes"%></td>
+		<td><%= t.label :distance, "Distance in Miles"%></td>
+	</tr>
+	<tr>
+		<td><%= t.select :hours, (0..23) %></td>
+		<td><%= t.select :minutes, (0..59) %></td>
+		<td><%= t.text_field :distance %></td>
+	</tr>
+	
+	<tr><td colspan="3"><%= t.label :description, "Description:"%></td></tr>
+	<tr><td colspan="3"><%= t.text_area :description%></td></tr>
+</table>
+
+
+<table>
+	<tr>
+<td><%= t.submit %></td>
+<td><%= link_to 'Back', trainings_path %></td>
+</tr>
+</table>
+
+<% end %>
