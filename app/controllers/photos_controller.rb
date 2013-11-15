@@ -22,6 +22,7 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
     @comments = Comment.all
+    
 
     respond_to do |format|
       format.html # show.html.erb
