@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :dob, :default_photo_id, :site_function, :email, :password, :password_confirmation, :remember_me
   has_many :photos
 
+  #comments
+  has_many :comments
   
   # Friend
   #has_and_belongs_to_many :users

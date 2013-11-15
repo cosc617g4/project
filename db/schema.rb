@@ -11,8 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+ActiveRecord::Schema.define(:version => 20131114224327) do
 
-ActiveRecord::Schema.define(:version => 20131111182229) do
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "photo_id"
+    t.string   "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "friendships", :force => true do |t|
     t.integer  "user_id"
@@ -23,12 +30,6 @@ ActiveRecord::Schema.define(:version => 20131111182229) do
 
   create_table "functions", :force => true do |t|
     t.string "functions"
-  end
-
-  create_table "marathon_photos", :force => true do |t|
-    t.integer "marathon_id"
-    t.integer "photo_id"
-    t.string  "bib_number"
   end
 
   create_table "marathons", :force => true do |t|
@@ -48,13 +49,6 @@ ActiveRecord::Schema.define(:version => 20131111182229) do
     t.string   "userphoto_content_type"
     t.integer  "userphoto_file_size"
     t.datetime "userphoto_updated_at"
-  end
-
-  create_table "photos_comments", :force => true do |t|
-    t.integer "user_photo_id"
-    t.integer "from_user_id"
-    t.date    "date"
-    t.string  "comment"
   end
 
   create_table "privacy_categories", :force => true do |t|
@@ -92,11 +86,6 @@ ActiveRecord::Schema.define(:version => 20131111182229) do
   create_table "user_marathons", :force => true do |t|
     t.integer "user_id"
     t.integer "marathon_id"
-  end
-
-  create_table "user_photos", :force => true do |t|
-    t.integer "photo_id"
-    t.integer "user_id"
   end
 
   create_table "user_privacy_settings", :force => true do |t|
