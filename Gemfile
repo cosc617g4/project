@@ -22,8 +22,11 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'devise', github: 'plataformatec/devise'
+  
+  gem 'jquery-ui-rails'
 end
 
 gem 'jquery-rails'
 
 gem "paperclip","~>3.0"
+
