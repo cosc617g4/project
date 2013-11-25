@@ -1,20 +1,19 @@
 <div id="no_sidebar">
 </div>
 <div id="content">
-<h1>Listing photos</h1>
+<h1>Listing all photos</h1>
+
+<br>
+
 
 <table>
-  <tr>
-    <th>All Photos</th>
-  </tr>
-
 <% @photos.each do |photo| %>
   <tr>
     
     
     <td><%= link_to (image_tag (photo.userphoto.url(:small))), photo %></td>
     <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-    <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% uploadby=User.find(photo.user_id) %>
     <td> Uploaded by: <%= uploadby.first_name %> </td>
   </tr>

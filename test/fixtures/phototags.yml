@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  photoid: 1
+  tag: MyString
+
+two:
+  photoid: 1
+  tag: MyString

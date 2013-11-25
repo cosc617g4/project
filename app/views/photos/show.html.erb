@@ -1,33 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>My photos:</b>
-  
-  <%= image_tag @photo.userphoto.url%>
- 
+  <b><%= link_to 'Tags ', new_phototag_path(:photoid => @photo.id) %></b>
+    <% @phototags.each do |phototag| %>
+      <% if @photo.id == phototag.photoid %>
+        #<%= phototag.tag %>
+      <%end%>
+     <%end%>
+</p>   
+
+<br><%= image_tag @photo.userphoto.url%> </br>
+
+
+
+<p>
+  <%= link_to 'Edit', edit_photo_path(@photo) %> 
+  <%= link_to 'Back', photos_path %>
+  <%= link_to 'Comments', new_comment_path(:photoid => @photo.id) %>
 </p>
 
-
-
-<%= link_to 'Edit', edit_photo_path(@photo) %> 
-
-<%= link_to 'Back', photos_path %>
-
-
-
-<h1>comments</h1>
+<br>
 
 <table>
-<% @comments.each do |comment| %>
-
-<% if @photo.id == comment.photo_id %>
-<tr>
-	<td><h6><%= comment.message %></h6></td>
-	<% commentby = User.find(comment.user_id)%>
-	<td><i>Commented By: <%= commentby.first_name %></i></td>
-</tr>
-<%end%>
-<%end%>
+   <% @comments.each do |comment| %>
+      <% if @photo.id == comment.photo_id %>
+            <% commentby = User.find(comment.user_id)%>
+	     <tr>    
+	        <td><%= commentby.first_name %>:</td>
+	        <td><%= comment.message %></td>
+	     </tr>   
+         <%end%>
+   <%end%>
 </table>
 
-<%= link_to 'New Comments', new_comment_path(:photoid => @photo.id) %>
+
