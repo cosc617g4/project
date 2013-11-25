@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :dob, :default_photo_id, :site_function, :email, :password, :password_confirmation, :remember_me
   has_many :photos
 
+  def fullname
+    return "#{first_name} #{last_name}"
+  end
+
   #comments
   has_many :comments
   
@@ -20,4 +24,5 @@ class User < ActiveRecord::Base
 
   has_many :trainings
 
+  acts_as_messageable 
 end

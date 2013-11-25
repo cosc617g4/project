@@ -48,7 +48,9 @@ Marathonrunnerphotos::Application.routes.draw do
 
 
   devise_for :users
-
+    
+  get "users/new_message"
+  
   get "index/login"
 
   get "test_branch_controller_manish/manish"
@@ -58,6 +60,8 @@ Marathonrunnerphotos::Application.routes.draw do
   get "main/tester"
   
   get "photos/perphotos"
+  
+  resources :messages
   
 
 

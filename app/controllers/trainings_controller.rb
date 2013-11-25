@@ -31,7 +31,7 @@ class TrainingsController < ApplicationController
 
     respond_to do |format|
       if @training.update_attributes(params[:training])
-        format.html { redirect_to trainings_path, notice: 'Training entry was successfully updated.' }
+        format.html { redirect_to trainings_path, notice: 'Training entry was successfully updated. '}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -46,7 +46,10 @@ class TrainingsController < ApplicationController
 
     respond_to do |format|
       if @training.save
-        format.html { redirect_to trainings_path, notice: 'Training was successfully created.'}
+        string = "Training was successfully created."
+        string << @training.date
+        
+        format.html { redirect_to trainings_path, notice: string}
       else
         format.html { render action: "new" }
         format.json { render json: @product.errors, status: :unprocessable_entity }
