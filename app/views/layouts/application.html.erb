@@ -13,11 +13,6 @@
 
 	</head>
 	<body>
-		<% if user_signed_in? %>
-		<% else %>
-		<% redirect_to new_user_session_path %>
-		<% end %>
-
 		<div id="mainPan">
 			<div id="topPan">
 				<a href="http://0.0.0.0:3000/"><%= image_tag("logo.png") %></a>
@@ -33,6 +28,9 @@
 					</li>
 					<li>
 						<%= link_to('Event') %>
+					</li>
+					<li>
+						<%= link_to 'Inbox', messages_path %>
 					</li>
 					<% if user_signed_in? %>
 					<span>Hello <%= current_user.first_name %>

@@ -49,7 +49,11 @@ Marathonrunnerphotos::Application.routes.draw do
 
   devise_for :users
     
-  get "users/new_message"
+  get "messages/reply"
+  
+  get "messages/outbox"
+  
+  get "messages/show"
   
   get "index/login"
 

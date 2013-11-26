@@ -1,8 +1,25 @@
 <%= form_for @message, :url => messages_path, :method => :post do |f| %>
 
-<%= f.collection_select :to, @friends, :email, :fullname, :prompt => "Select a Friend" %>
-<%= f.text_area :body %>
-<%= f.text_field :topic %>
+<table>
+
+	<tr>
+		<td><%= f.label :to, 'Send To:' %></td>
+		<td><%= f.collection_select :to, @friends, :email, :fullname, :prompt => "Select a Friend" %></td>
+	</tr>
+
+	<tr>
+		<td><%= f.label :topic, 'Subject:' %></td>
+		<td><%= f.text_field :topic %></td>
+	</tr>
+
+	<tr>
+		<td><%= f.label :body, 'Message:' %></td>
+		<td><%= f.text_area :body %></td>
+	</tr>
+
+</table>
 <%= f.button :submit, class: 'btn' %>
+
 <% end %>
 
+<%= link_to 'Cancel', messages_path %>

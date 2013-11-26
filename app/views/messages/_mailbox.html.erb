@@ -1,0 +1,29 @@
+<table border="2" cellpadding="5">
+
+	<tr>
+		<th></th>
+		<th></th>
+		<th><%= @namecolumn %> </th>
+		<th>Subject</th>
+	</tr>
+
+	<% @messages.each do |message| %>
+
+	<tr>
+		<td> <%= link_to "Delete", message_path(message), :method => :delete, data: {confirm: 'Are you sure you wish to delete this list?'} %></td>
+		<td><%= link_to 'Reply', :controller => 'messages', :action => :reply, :message => message %></td>
+		
+		
+		<% if @controllermethod == "index" %>
+		<% @sender = User.find(message.sent_messageable)%>
+		<% else %>
+		<% @sender = User.find(message.received_messageable)%>
+		<% end %>
+		
+		
+		<td><%= @sender.first_name %> <%= @sender.last_name %></td>
+		<% @subject = message.topic %>
+		<td><%= link_to "#@subject", :controller => 'messages', :action => :show, :message => message %></td>
+	</tr>
+	<% end %>
+</table>
