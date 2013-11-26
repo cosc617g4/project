@@ -1,6 +1,9 @@
 Marathonrunnerphotos::Application.routes.draw do
 
   
+  resources :phototags
+
+
   resources :comments
 
 

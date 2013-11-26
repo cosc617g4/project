@@ -1,0 +1,24 @@
+<%= form_for(@phototag) do |f| %>
+  <% if @phototag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@phototag.errors.count, "error") %> prohibited this phototag from being saved:</h2>
+
+      <ul>
+      <% @phototag.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :photoid, :value => params[:photoid] %>
+  </div>
+  <div class="field">
+    <%= f.label :tag %><br />
+    <%= f.text_field :tag %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
