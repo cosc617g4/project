@@ -70,7 +70,16 @@ Marathonrunnerphotos::Application.routes.draw do
   
   resources :messages
   
+  get 'admins/', to: 'admins#index'
 
+   get 'admins/marathon', to: 'admins#marathon'
+
+   get "marathons/add", to: "marathons#add"
+
+   get "marathons/", to: "marathons#add"
+  # get 'admins/user'
+
+  # get 'admins/photo'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
