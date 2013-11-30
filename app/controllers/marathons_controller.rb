@@ -24,7 +24,7 @@ class MarathonsController < ApplicationController
 		@marathon = Marathon.new(params[:marathon])
 		respond_to do |format|
 			if @marathon.save
-				format.html { redirect_to admins_marathon_path,
+				format.html { redirect_to marathons_index_path,
 					notice: "Marathon #{@marathon.name} was successfully created"}
 				format.json { render json: @marathon,
 					status: :created, location: @marathon }

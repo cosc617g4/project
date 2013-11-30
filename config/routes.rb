@@ -80,7 +80,7 @@ Marathonrunnerphotos::Application.routes.draw do
   
   get 'admins/', to: 'admins#index'
 
-   get 'admins/marathon', to: 'admins#marathon'
+  # get 'admins/marathon', to: 'admins#marathon'
 
    # get "marathons/add", to: "marathons#add"
 

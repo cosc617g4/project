@@ -12,8 +12,9 @@
 </div>
 <% end %>
 
-
-<%= m.label :Date, "Date of Marathon:" %>
+<%= m.label :name, "Name of Marathon:" %>
+<%= m.text_field :name %>
+<%= m.label :Date, "Date:" %>
 <%= m.date_select(:Date, :order => [:month, :day, :year]) %>
 
 <%= m.label :state, "State" %>
