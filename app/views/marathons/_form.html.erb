@@ -1,4 +1,4 @@
-<%= form_for(@marathon) do |m| %>
+<%= form_for @marathon, url: {action: "create"} do |m| %>
 <% if @marathon.errors.any? %>
 <div id="error_explanation">
 	<h2><%= pluralize(@marathon.errors.count, "error") %> prohibited this marathon from being saved:</h2>
@@ -11,6 +11,7 @@
 	</ul>
 </div>
 <% end %>
+
 
 <%= m.label :Date, "Date of Marathon:" %>
 <%= m.date_select(:Date, :order => [:month, :day, :year]) %>
@@ -28,8 +29,8 @@
 
 
 <br>
-<%= m.submit %>
+<%= m.submit "Create" %>
 <br>
-<%= link_to 'Back', admins_marathon_path %>
+<%= link_to 'Back', controller: "marathon", action: "index" %>
 
 <% end %>

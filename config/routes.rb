@@ -1,6 +1,12 @@
 Marathonrunnerphotos::Application.routes.draw do
 
   
+  get "marathons/index"
+
+  get "marathons/create"
+
+  get "marathons/add"
+
   get "profile/index"
 
   resources :phototags
@@ -76,9 +82,11 @@ Marathonrunnerphotos::Application.routes.draw do
 
    get 'admins/marathon', to: 'admins#marathon'
 
-   get "marathons/add", to: "marathons#add"
+   # get "marathons/add", to: "marathons#add"
 
-   get "marathons/", to: "marathons#add"
+   # get "marathons/add", to: "marathons#add"
+
+   # get "marathons/", to: "marathons#index"
   # get 'admins/user'
 
   # get 'admins/photo'
