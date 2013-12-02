@@ -13,6 +13,7 @@
 
 	</head>
 	<body>
+		
 		<div id="mainPan">
 			<div id="topPan">
 				<a href="http://0.0.0.0:3000/"><%= image_tag("logo.png") %></a>
@@ -39,11 +40,15 @@
 					<span><%= link_to('Sign In', new_user_session_path) %></span>
 					<% end %>
 				</ul>
+				<ul>
+					<br><%= render '/search/form'%>
+				</ul>
 			</div>
 
 			<%= yield %>
 
 		</div>
+		
 
 		<p class="notice">
 			<%= notice %>

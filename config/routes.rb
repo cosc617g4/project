@@ -1,6 +1,8 @@
 Marathonrunnerphotos::Application.routes.draw do
 
   
+  resources "search"
+
   get "marathons/index"
 
   get "marathons/create"
@@ -78,6 +80,7 @@ Marathonrunnerphotos::Application.routes.draw do
   resources :messages
   
   get 'admins/', to: 'admins#index'
+  
 
   # get 'admins/marathon', to: 'admins#marathon'
 

@@ -32,3 +32,5 @@ gem "paperclip","~>3.0"
 
 gem 'acts-as-messageable'
 
+gem 'acts_as_indexed'
+
