@@ -5,13 +5,14 @@ class PhotosController < ApplicationController
 
   
   def index
-    @photos = Photo.all
-   # @photos = Photo.find_by_user_id(current_user.id)
-  # @photos = Photo.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @photos }
+    if (current_user == nil)
+      redirect_to new_user_session_path
+    else
+      @photos = Photo.all
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @photos }
+      end
     end
   end
   
@@ -21,7 +22,7 @@ class PhotosController < ApplicationController
   # GET /photos/1.json
   def show
     @photo = Photo.find(params[:id])
-    @comments = Comment.all
+    @comments = Comment.find(:all, :order=>"created_at DESC")
     @phototags = Phototag.all
     
 

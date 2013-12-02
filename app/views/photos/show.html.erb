@@ -16,15 +16,17 @@
 <p>
   <%= link_to 'New Comment', new_comment_path(:photoid => @photo.id) %>
 </p>
-
+  
 <br>
 
-<table>
+<table border=1>
    <% @comments.each do |comment| %>
       <% if @photo.id == comment.photo_id %>
             <% commentby = User.find(comment.user_id)%>
 	     <tr>    
 	        <td><%= commentby.first_name %>:</td>
+	        <td><%=comment.created_at.strftime("%d %b. %Y")%></td>
+	        <td><%=comment.created_at.strftime("%H:%M")%></td>
 	        <td><%= comment.message %></td>
 	     </tr>   
          <%end%>

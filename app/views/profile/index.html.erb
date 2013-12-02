@@ -20,6 +20,7 @@
              <% if photo.id == current_user.default_photo_id%>
                 <% @found = 1 %>
                 <%= link_to (image_tag (photo.userphoto.url)), photo %>
+                <%= link_to 'Change', myphotos_photos_path%>
              <%end%>
           <%end%>  
           
