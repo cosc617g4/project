@@ -90,12 +90,16 @@ class PhotosController < ApplicationController
 
   def myphotos
     if user_signed_in?
-   @photos = Photo.all
-   # @photos = Photo.find_by_user_id(current_user.id)
-  # @photos = Photo.find(:all)
-  else
+       @photos = Photo.all
+    else
      redirect_to "/users/sign_in" 
    end  
+  end
+  
+  def setdefaultphoto
+    @photo = Photo.find(params[:photoid])
+    User.where(:id=>current_user.id).update_all(:default_photo_id => @photo)
+    redirect_to profile_index_path
   end
   
   

@@ -12,10 +12,13 @@
     
     
     <td><%= link_to (image_tag (photo.userphoto.url(:small))), photo %></td>
-    <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-    <td><%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% uploadby=User.find(photo.user_id) %>
-    <td> Uploaded by: <%= uploadby.first_name %> </td>
+    <% if photo.user_id == current_user.id%>
+        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+        <td><%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% else %>
+        <% uploadby=User.find(photo.user_id) %>
+        <td> Uploaded by: <%= uploadby.first_name %> </td>
+    <%end%>
   </tr>
 <% end %>
 </table>

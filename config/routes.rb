@@ -52,6 +52,7 @@ Marathonrunnerphotos::Application.routes.draw do
   resources :photos do
     collection do
       get :myphotos
+      get :setdefaultphoto
     end
   end
   
@@ -73,8 +74,6 @@ Marathonrunnerphotos::Application.routes.draw do
   get "test_branch/brad"
 
   get "main/tester"
-  
-  get "photos/perphotos"
   
   resources :messages
   

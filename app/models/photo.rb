@@ -3,5 +3,5 @@ class Photo < ActiveRecord::Base
   has_attached_file :userphoto, :styles => {:thumb => "75x75", :small => "150x150>"}
   belongs_to :user
   has_many :comments
-  has_many :tags
+  has_one :phototag
 end
