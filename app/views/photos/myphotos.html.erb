@@ -2,14 +2,20 @@
 	Photos for <%= current_user.first_name %>
 </h1>
 
+<table>
 <% @photos.each do |photo| %>
 <% if photo.user_id == current_user.id%>
   
-  <%= link_to (image_tag (photo.userphoto.url(:small))), photo %>
- 
+ <tr>
+  <td><%= link_to (image_tag (photo.userphoto.url(:small))), photo %></td>
+  
+  <td><%= link_to 'Set Default', setdefaultphoto_photos_path(:photoid=>photo.id, :userid=>photo.user_id) %></td>
+ </tr>
   
 <%end%>
 <%end%>
+
+</table>
  <br />
  <br />
  <%= link_to 'Home', root_path %>

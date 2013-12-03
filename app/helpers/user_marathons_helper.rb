@@ -1,0 +1,2 @@
+module UserMarathonsHelper
+end

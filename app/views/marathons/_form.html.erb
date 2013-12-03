@@ -1,0 +1,37 @@
+<%= form_for @marathon, url: {action: "create"} do |m| %>
+<% if @marathon.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@marathon.errors.count, "error") %> prohibited this marathon from being saved:</h2>
+	<ul>
+		<% @marathon.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<%= m.label :name, "Name of Marathon:" %>
+<%= m.text_field :name %>
+<%= m.label :Date, "Date:" %>
+<%= m.date_select(:Date, :order => [:month, :day, :year]) %>
+
+<%= m.label :state, "State" %>
+<%= m.text_field :state %>
+<%= m.label :city, "City" %>
+<%= m.text_field :city %>
+
+<%= m.label :country, "Country" %>
+<%= m.text_field :country %>
+<%= m.label :distance, "Distance" %>
+<%= m.text_field :distance %>
+
+
+
+<br>
+<%= m.submit "Create" %>
+<br>
+<%= link_to 'Back', controller: "marathon", action: "index" %>
+
+<% end %>

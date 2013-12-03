@@ -1,0 +1,55 @@
+<h3>
+	Links to working with the Marathons
+</h3>
+
+
+<%= link_to "Add a Marathon", controller: "marathons", action: "add" %>
+
+<h3>
+	List of active Marathons
+</h3>
+
+<ul class="marathonList">
+	<% @marathons.each do |mar| %>
+		<li>
+			<h3>
+				<%= mar.name %>
+			</h3>
+			<div>
+				<ul>
+					<li> 
+						<span>
+							Date:
+						</span>
+						<span class="marathonDate">
+							<%= mar.Date %> 
+						</span>
+					</li>
+					<li> 
+						<span>
+							Location: 
+						</span>
+						<span class="marathonCity">
+							<%= mar.city %>
+						</span>
+						<span class="marathonState">
+							<%= mar.state %>
+						</span>
+						<span class="marathonCountry">
+							<%= mar.country %>
+						</span>						
+					</li>
+					<li>
+						<span =class="marathonDistance">
+							Distance: 
+						</span>
+						<span>
+							<%= mar.distance %>
+						</span>
+						</li>					
+				</ul>
+			</div>
+
+ 		</li>
+	<% end %>
+</ul>

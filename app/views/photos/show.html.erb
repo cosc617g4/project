@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= link_to 'Tags ', new_phototag_path(:photoid => @photo.id) %></b>
+  <b><%= link_to 'Tag', new_phototag_path(:photoid => @photo.id) %></b>
     <% @phototags.each do |phototag| %>
       <% if @photo.id == phototag.photoid %>
         #<%= phototag.tag %>
@@ -14,19 +14,19 @@
 
 
 <p>
-  <%= link_to 'Edit', edit_photo_path(@photo) %> 
-  <%= link_to 'Back', photos_path %>
-  <%= link_to 'Comments', new_comment_path(:photoid => @photo.id) %>
+  <%= link_to 'New Comment', new_comment_path(:photoid => @photo.id) %>
 </p>
-
+  
 <br>
 
-<table>
+<table border=1>
    <% @comments.each do |comment| %>
       <% if @photo.id == comment.photo_id %>
             <% commentby = User.find(comment.user_id)%>
 	     <tr>    
 	        <td><%= commentby.first_name %>:</td>
+	        <td><%=comment.created_at.strftime("%d %b. %Y")%></td>
+	        <td><%=comment.created_at.strftime("%H:%M")%></td>
 	        <td><%= comment.message %></td>
 	     </tr>   
          <%end%>

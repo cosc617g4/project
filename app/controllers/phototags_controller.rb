@@ -44,8 +44,8 @@ class PhototagsController < ApplicationController
 
     respond_to do |format|
       if @phototag.save
-        format.html { redirect_to @phototag, notice: 'Phototag was successfully created.' }
-        format.json { render json: @phototag, status: :created, location: @phototag }
+        @photo = Photo.find(@phototag.photoid)
+        format.html {redirect_to @photo}
       else
         format.html { render action: "new" }
         format.json { render json: @phototag.errors, status: :unprocessable_entity }

@@ -1,0 +1,30 @@
+<table border="1" cellpadding="2">
+	
+	<!-- table headers -->
+	<tr>
+		<th>Marathon</th>
+		<th>Date</th>
+		<th>Total Time</th>
+		<th>Place</th>
+	</tr>
+	
+	<% @usermarathons.each do |um| %>
+	<% temp = um.marathon %>
+	<tr>
+		<td><%= temp.name %></td>
+		<td><%= temp.Date %></td>
+		<td>
+			<%= um.hours%>:
+			<% if (um.minutes < 10) %>
+			0<%= um.minutes %>
+			<% else %>
+			<%= um.minutes %>
+			<% end %> 
+		</td>
+		<td><%= um.place %></td>
+		
+	</tr>	
+	<% end %>
+		
+	
+</table>

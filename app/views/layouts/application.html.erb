@@ -6,35 +6,56 @@
 		<%= javascript_include_tag "application" %>
 		<%= javascript_include_tag "jquery_ujs" %>
 		<%= csrf_meta_tags %>
+
+		<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js",
+		"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
+
 	</head>
-	<body>
-<div id="mainPan">
-<div id="topPan"> <a href="http://0.0.0.0:3000/"><%= image_tag("logo.png") %></a>
-	<ul>
-		<li><%= link_to 'Home' , root_path %></li>
-		<li><%= link_to 'Photos', photos_path %></li>
-		<li><%= link_to "Friends", controller: "friendship", action: "index" %></li>
-		<li><%= link_to('Event') %></li>
-    	<% if user_signed_in? %>
-		<span>Hello <%= current_user.first_name %>
-			<%= link_to('Sign Out', destroy_user_session_path, :method => 'delete') %></span>
-		<% else %>	
-			<span><%= link_to('Sign In', new_user_session_path) %></span>
-		<% end %>
-    </ul>
-</div>
+	<body>		
+		<div id="mainPan">
+			<div id="topPan">
+				<a href="http://0.0.0.0:3000/"><%= image_tag("logo.png") %></a>
+				<ul>
+					<li>
+						<%= link_to 'Home' , root_path %>
+					</li>
+					<li>
+						<%= link_to 'Photos', photos_path %>
+					</li>
+					<li>
+						<%= link_to "Friends", {controller: "friendship", action: "index"} %>
+					</li>
+					<li>
+						<%= link_to('Event') %>
+					</li>
+					<li>
+						<%= link_to 'Inbox', messages_path %>
+					</li>
+					<% if user_signed_in? %>
+					<span>Hello <%= current_user.first_name %>
+						<%= link_to('Sign Out', destroy_user_session_path, :method => 'delete') %></span>
+					<% else %>
+					<span><%= link_to('Sign In', new_user_session_path) %></span>
+					<% end %>
+				</ul>
+				<ul>
+					<br><%= render '/search/form'%>
+				</ul>
+			</div>
 
-		<%= yield %>
+			<%= yield %>
 
-</div>
-	
-	<p class="notice">
-		<%= notice %>
-	</p>
-	
-	<p>
-		<%= params[:alert] %>
-	</p>
-	
+		</div>
+		
+
+		<p class="notice">
+			<%= notice %>
+		</p>
+
+		<p>
+			<%= params[:alert] %>
+		</p>
+
 	</body>
 </html>

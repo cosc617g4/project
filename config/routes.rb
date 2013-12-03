@@ -1,6 +1,18 @@
 Marathonrunnerphotos::Application.routes.draw do
 
   
+  get "user_marathons/index"
+
+  resources "search"
+
+  get "marathons/index"
+
+  get "marathons/create"
+
+  get "marathons/add"
+
+  get "profile/index"
+
   resources :phototags
 
 
@@ -45,6 +57,7 @@ Marathonrunnerphotos::Application.routes.draw do
   resources :photos do
     collection do
       get :myphotos
+      get :setdefaultphoto
     end
   end
   
@@ -52,7 +65,13 @@ Marathonrunnerphotos::Application.routes.draw do
 
 
   devise_for :users
-
+    
+  get "messages/reply"
+  
+  get "messages/outbox"
+  
+  get "messages/show"
+  
   get "index/login"
 
   get "test_branch_controller_manish/manish"
@@ -61,9 +80,21 @@ Marathonrunnerphotos::Application.routes.draw do
 
   get "main/tester"
   
-  get "photos/perphotos"
+  resources :messages
+  
+  get 'admins/', to: 'admins#index'
   
 
+  # get 'admins/marathon', to: 'admins#marathon'
+
+   # get "marathons/add", to: "marathons#add"
+
+   # get "marathons/add", to: "marathons#add"
+
+   # get "marathons/", to: "marathons#index"
+  # get 'admins/user'
+
+  # get 'admins/photo'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
