@@ -23,7 +23,8 @@ class User < ActiveRecord::Base
   has_many :users, :through => :friendships
 
   #marathon
-  has_and_belongs_to_many :marathons
+  has_many :user_marathons
+  has_many :marathons, :through => :user_marathons
   
 
   has_many :trainings

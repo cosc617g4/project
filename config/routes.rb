@@ -1,6 +1,8 @@
 Marathonrunnerphotos::Application.routes.draw do
 
   
+  get "user_marathons/index"
+
   resources "search"
 
   get "marathons/index"

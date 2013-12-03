@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131130205903) do
+ActiveRecord::Schema.define(:version => 20131203021259) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(:version => 20131130205903) do
   end
 
   create_table "phototags", :force => true do |t|
-    t.string   "tag"
     t.integer  "photoid"
+    t.string   "tag"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -111,9 +111,16 @@ ActiveRecord::Schema.define(:version => 20131130205903) do
   end
 
   create_table "user_marathons", :force => true do |t|
-    t.integer "user_id"
-    t.integer "marathon_id"
+    t.integer  "user_id"
+    t.integer  "marathon_id"
+    t.integer  "hours"
+    t.integer  "minutes"
+    t.integer  "place"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
+
+  add_index "user_marathons", ["user_id"], :name => "index_user_marathons_on_user_id"
 
   create_table "user_privacy_settings", :force => true do |t|
     t.integer "user_id"
