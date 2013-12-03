@@ -16,7 +16,10 @@ class User < ActiveRecord::Base
   #has_and_belongs_to_many :users
   has_many :friendships
   has_many :users, :through => :friendships
-
+  # Friendrequest
+  has_many :friendrequests
+  has_many :users, :through => :friendrequests
+  
   #marathon
   has_and_belongs_to_many :marathons
   

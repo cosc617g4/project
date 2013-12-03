@@ -12,8 +12,9 @@ Marathonrunnerphotos::Application.routes.draw do
   get "friendship/new"
   get "friendship/show"
   get "friendship/confirm"
-  get "friendship/confirm"
-  
+  #resources :friendships do
+  #  get :autocomplete_user_email, :on => :collection
+  #end
 
 
   get "trainings/index"
