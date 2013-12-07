@@ -50,17 +50,11 @@ GEM
     arel (3.0.3)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
-    better_errors (1.0.1)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
       climate_control (>= 0.0.3, < 1.0)
-    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -69,7 +63,6 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     commonjs (0.2.7)
-    debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -164,8 +157,6 @@ PLATFORMS
 DEPENDENCIES
   acts-as-messageable
   acts_as_indexed
-  better_errors
-  binding_of_caller
   coffee-rails (~> 3.2.1)
   devise!
   jquery-rails

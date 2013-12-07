@@ -17,5 +17,13 @@
 //= require_tree .
 
 $(function() {
-  $('#training_date').datepicker();
+  $('#training_date').datepicker({
+  	dateFormat: "yy-mm-dd"
+  });
+
+  $('#marathon_Date').datepicker({
+  	dateFormat: "yy-mm-dd"
+  });
 });
+
+
