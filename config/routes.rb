@@ -1,6 +1,13 @@
 Marathonrunnerphotos::Application.routes.draw do
 
   
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  get "administrator/index"
+
+  get "administrator/marathon"
+
   get "newsfeed/main"
 
   get "newsfeed/add"
@@ -75,6 +82,7 @@ Marathonrunnerphotos::Application.routes.draw do
 
 
   devise_for :users
+  ActiveAdmin.routes(self)
     
   get "messages/reply"
   
