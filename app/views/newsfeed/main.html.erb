@@ -1,0 +1,15 @@
+<h1>HERE YO NEWS</h1>
+
+<h3><%= @feed.title %></h3>
+
+<%@entries.each do |e|%>
+<h4><%= e.title%></h4>
+<img src=<%= e.image %> 
+	<p>
+		<%=e.summary%>
+		<br>
+		<small><strong>
+			<a href=<%= e.url %>>Read Full Article</a>
+		</small></strong>
+	</p>
+<%end%>

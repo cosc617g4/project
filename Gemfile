@@ -34,8 +34,10 @@ gem 'acts-as-messageable'
 
 gem 'acts_as_indexed'
 
+gem 'feedzirra'
+
 group :development do
-  #gem "better_errors"
-  #gem "binding_of_caller"
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 

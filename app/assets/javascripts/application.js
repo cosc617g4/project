@@ -16,6 +16,8 @@
 //= require twitter/bootstrap
 //= require_tree .
 
+
+
 $(function() {
   // $('#training_date').datepicker({
   // 	dateFormat: "yy-mm-dd"

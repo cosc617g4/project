@@ -1,6 +1,16 @@
 Marathonrunnerphotos::Application.routes.draw do
 
   
+  get "newsfeed/main"
+
+  get "newsfeed/add"
+
+  get "newsfeed/remove"
+
+  get "newsfeed/block"
+
+  get "newsfeed/unblock"
+
   get "user_marathons/index"
 
   resources "search"
