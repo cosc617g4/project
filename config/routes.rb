@@ -27,6 +27,8 @@ Marathonrunnerphotos::Application.routes.draw do
   get "marathons/create"
 
   get "marathons/add"
+  
+  resources :user_marathons
 
   get "profile/index"
 
