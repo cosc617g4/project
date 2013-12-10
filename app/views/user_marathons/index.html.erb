@@ -6,6 +6,7 @@
 		<th>Date</th>
 		<th>Total Time</th>
 		<th>Place</th>
+		<th></th>
 	</tr>
 	
 	<% @usermarathons.each do |um| %>
@@ -22,6 +23,7 @@
 			<% end %> 
 		</td>
 		<td><%= um.place %></td>
+		<td><%= link_to 'Edit', edit_user_marathon_path(um) %></td>
 		
 	</tr>	
 	<% end %>
