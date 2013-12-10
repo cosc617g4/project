@@ -1,12 +1,11 @@
 class MarathonsController < ApplicationController
 
 	def index
-		if(current_user == nil)
+		if(!user_signed_in?)
 			redirect_to new_user_session_path
-		elsif(current_user.admin?)
-			@marathons = Marathon.find(:all)
 		else
-			redirect_to root_path
+			@marathons = Marathon.find(:all)
+		
 		end
 
 	end
