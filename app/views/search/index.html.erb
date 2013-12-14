@@ -1,9 +1,31 @@
-<% @images.each do |image| %>
-    tags: <%=image.tag%> <br>
-    <% @photos = Photo.find(image.photoid)%>
-    <%= image_tag (@photos.userphoto.url) %> <br>
-    <% @found = 1 %>
+<! ADDED acts_as_indexed :fields in phototag model >
+
+<!search values bib=1 marathon=2 friends=3>
+
+<%if @searchvar == "1" %>
+    <% @images.each do |image| %>
+       <%if @searchval == image.tag %>
+         tags: <%=image.tag%> <br>
+         <% @photos = Photo.find(image.photoid)%>
+         <%= image_tag (@photos.userphoto.url) %> <br>
+         <% @found = 1 %>
+       <%end%>
+    <%end%>    
+    
+    <% elsif @searchvar == "2"%>
+       Your search for marathon 
+       <%= @marathons.each do |marathon| %>
+         <%= marathon.name%>
+         
+         <% @found =1 %>
+       <%end%>
+    
+      
 <%end%>
+
+
+
+
 
 <% if @found != 1 %>
    <h1>Could not find your request !</h1>
