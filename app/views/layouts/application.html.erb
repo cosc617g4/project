@@ -16,33 +16,45 @@
 		<div id="mainPan">
 			<div id="topPan">
 				<a href="http://0.0.0.0:3000/"><%= image_tag("logo.png") %></a>
-				<ul>
-					<li>
-						<%= link_to 'Home' , root_path %>
-					</li>
-					<li>
-						<%= link_to 'Photos', photos_path %>
-					</li>
-					<li>
-						<%= link_to "Friends", {controller: "friendship", action: "index"} %>
-					</li>
-					<li>
-						<%= link_to('Event') %>
-					</li>
-					<li>
-						<%= link_to 'Inbox', messages_path %>
-					</li>
+				
 					<% if user_signed_in? %>
 					<span>Hello <%= current_user.first_name %>
 						<%= link_to('Sign Out', destroy_user_session_path, :method => 'delete') %></span>
 					<% else %>
 					<span><%= link_to('Sign In', new_user_session_path) %></span>
 					<% end %>
+<<<<<<< HEAD
 				</ul>
 				
 					<%= render '/search/form'%>
 				
+=======
+				
+				<ul>
+					<br><%= render '/search/form'%>
+				</ul>
+>>>>>>> d530938fc5dbe6fae328e0e4fa788aa33cd610f1
 			</div>
+
+			<div id="sidebar">
+			  <ul>
+			    <li>
+			      <%= link_to 'Home' , root_path %>
+			    </li>
+			    <li>
+			      <%= link_to 'Photos', photos_path %>
+			    </li>
+			    <li>
+			      <%= link_to "Friends", {controller: "friendship", action: "index"} %>
+			    </li>
+			    <li>
+			      <%= link_to('Event') %>
+			    </li>
+			    <li>
+			      <%= link_to 'Inbox', messages_path %>
+			    </li>
+			  </ul>
+			  </div>
 
 			<%= yield %>
 
