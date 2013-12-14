@@ -1,5 +1,4 @@
-<div id="no_sidebar">
-</div>
+<div id="no_sidebar"></div>
 <div id="content">
 	<h2>Profile</h2>
 	<table>
@@ -14,34 +13,41 @@
 			<td><%= link_to "Edit" %></td>
 		</tr>
 		<tr>
-          <h4>Profile Picture</h4>
-          <% @photos = Photo.all %>
-          <% @photos.each do |photo| %>
-             <% if photo.id == current_user.default_photo_id%>
-                <% @found = 1 %>
-                <%= link_to (image_tag (photo.userphoto.url), :style => "width: 2000px; height: 200px;"), photo %>
-                <%= link_to 'Change', myphotos_photos_path%>
-             <%end%>
-          <%end%>  
-          
-          <% if @found != 1 %>
-             <tr>You do not have default photo. Please select the default photo using this link</tr>
-             <tr><%=link_to 'My photos', myphotos_photos_path %> </tr>
-          <%end%>
-          
+			<h4>Profile Picture</h4>
+			<% @photos = Photo.all %>
+			<% @photos.each do |photo| %>
+			<% if photo.id == current_user.default_photo_id%>
+			<% @found = 1 %>
+			<%= link_to (image_tag (photo.userphoto.url), :style => "width: 2000px; height: 200px;"), photo %>
+			<%= link_to 'Change', myphotos_photos_path%>
+			<%end%>
+			<%end%>
+
+			<% if @found != 1 %>
+		<tr>
+			You do not have default photo. Please select the default photo using this link
 		</tr>
-		
-		<% @posts.each do |post| %>		
-		<tr border="1">
-			<td>
-				<%= post.updated_at %>
-			</td>
-			<td><%= post.message %></td>
-			<td>
-				<% if post.photo_file_name != nil %>
-				<%= image_tag (post.photo_file_name)%>
-				<% end %>				
-			</td>
+		<tr>
+			<%= link_to 'My photos', myphotos_photos_path %>
+		</tr>
+		<%end%>
+
+		</tr>
+
+	</table>
+
+	<h2>Recent Profile Entries</h2>
+	<table>
+
+		<% @posts.each do |post| %>
+		<tr class="postrow">
+			<td class="postcell"> <%= post.updated_at %> </td>
+
+			<td class="postcell"> <%= post.message %> </td>
+
+			<td class="postcell"> <% if post.photo_file_name != nil %>
+			<%= image_tag (post.photo_file_name)%>
+			<% end %> </td>
 		</tr>
 		<% end %>
 	</table>
