@@ -1,9 +1,10 @@
-<h3>
+<!--<h3>
 	Links to working with the Marathons
-</h3>
+</h3>-->
 
-
+<% if current_user.admin? %>
 <%= link_to "Add a Marathon", controller: "marathons", action: "add" %>
+<% end %>
 
 <h3>
 	List of active Marathons
