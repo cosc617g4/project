@@ -40,9 +40,9 @@
 					<span><%= link_to('Sign In', new_user_session_path) %></span>
 					<% end %>
 				</ul>
-				<ul>
-					<br><%= render '/search/form'%>
-				</ul>
+				
+					<%= render '/search/form'%>
+				
 			</div>
 
 			<%= yield %>
@@ -57,6 +57,8 @@
 		<p>
 			<%= params[:alert] %>
 		</p>
+		
+		
 
 	</body>
 </html>

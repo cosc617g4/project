@@ -1,6 +1,10 @@
 class SearchController < ApplicationController
   def index
-    @images = Phototag.with_query(params[:tagnum])
+    @images = Phototag.with_query(params[:textval])
     @photos = Photo.all
+   
+    
+    @searchvar = params[:search_var]
+    @searchval = params[:textval]
   end
 end

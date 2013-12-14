@@ -1,5 +1,5 @@
 <%= form_tag("/search", method: "get") do %>
-  <%= label_tag("Search for:") %>
-  <%= text_field_tag(:tagnum) %>
+  <%= select_tag(:search_var,options_for_select([['Bib', 1], ['Marathon', 2]]))%>
+  <%= text_field_tag(:textval) %>
   <%= submit_tag("Search") %>
 <% end %>
