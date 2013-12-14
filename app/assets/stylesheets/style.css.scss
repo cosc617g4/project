@@ -14,9 +14,9 @@ ul{list-style-type:none;}
 
 /* top menu */
 #topPan ul{width:600px; height:16px; display:block; position:absolute; top:90px; left:220px;}
-#topPan ul li{width:100px; height:20px; float:left; }
-#topPan ul li a{width:47px; height:16px; display:block; background:url(image-path("arrow3.gif")) 0 6px no-repeat #fff; color:#5A5A5A; font-size:18px; text-decoration:none; padding:0 0 0 12px;}
-#topPan ul li a:hover{background:url(image-path("arrow4.gif")) 0 6px no-repeat #fff; color:#5A5A5A; text-decoration:none;}
+#sidebar ul li{width:100px; height:20px; float:left; }
+#sidebar ul li a{width:47px; height:16px; display:block; background:url(image-path("arrow3.gif")) 0 6px no-repeat #fff; color:#5A5A5A; font-size:25px; text-decoration:none; padding:0 0 0 12px;}
+#sidebar ul li a:hover{background:url(image-path("arrow4.gif")) 0 6px no-repeat #fff; color:#5A5A5A; text-decoration:none;}
 
 /* "Sign in" at the top */
 #topPan span {position: absolute; right: 0; color:#5A5A5A;}
@@ -40,8 +40,13 @@ ul{list-style-type:none;}
 	padding : 5px;
 	color : #333;
 
+  li {
+    margin-bottom:9px;
+    font-size:x-large;
+  }
+
 			/*SIDE MENU*/
-  .sidemenu ul {
+  /*.sidemenu ul {
     list-style-type : none;
     text-align : left;
   }
@@ -49,6 +54,7 @@ ul{list-style-type:none;}
     display : block;
     color : #666;
     background : inherit;
+
   }
   .sidemenu ul li a {
     padding-left : 15px;
@@ -61,7 +67,7 @@ ul{list-style-type:none;}
   }
   .sidemenu ul li a#current {
     color : #666;
-  }
+  }*/
 }
 
 /* CONTENT */
