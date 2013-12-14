@@ -19,7 +19,7 @@
           <% @photos.each do |photo| %>
              <% if photo.id == current_user.default_photo_id%>
                 <% @found = 1 %>
-                <%= link_to (image_tag (photo.userphoto.url)), photo %>
+                <%= link_to (image_tag (photo.userphoto.url), :style => "width: 2000px; height: 200px;"), photo %>
                 <%= link_to 'Change', myphotos_photos_path%>
              <%end%>
           <%end%>  
@@ -31,6 +31,18 @@
           
 		</tr>
 		
-		
+		<% @posts.each do |post| %>		
+		<tr border="1">
+			<td>
+				<%= post.updated_at %>
+			</td>
+			<td><%= post.message %></td>
+			<td>
+				<% if post.photo_file_name != nil %>
+				<%= image_tag (post.photo_file_name)%>
+				<% end %>				
+			</td>
+		</tr>
+		<% end %>
 	</table>
 </div>
