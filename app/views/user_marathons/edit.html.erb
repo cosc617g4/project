@@ -1,0 +1,36 @@
+<%= form_for(@usermarathon) do |um| %>
+
+<% if @usermarathon.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@usermarathon.errors.count, "error") %> prohibited this training from being saved:</h2>
+	<ul>
+		<% @usermarathon.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<table>
+	
+
+	<tr>
+		<td><%= um.label :hours%></td>
+		<td><%= um.label :minutes%></td>
+		<td><%= um.label :place%></td>
+	</tr>
+
+	<tr>
+		<td><%= um.select :hours, (0..23) %></td>
+		<td><%= um.select :minutes, (0..59) %></td>
+		<td><%= um.text_field :place%></td>
+	</tr>
+	<tr>
+		<td><%= um.submit %></td>
+		<td><%= link_to 'Back', user_marathons_path %></td>
+	</tr>
+</table>
+
+<% end %>

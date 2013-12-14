@@ -16,6 +16,18 @@
 //= require twitter/bootstrap
 //= require_tree .
 
+
+
 $(function() {
-  $('#training_date').datepicker();
+  // $('#training_date').datepicker({
+  // 	dateFormat: "yy-mm-dd"
+  // });
+
+$('#training_date').datepicker();
+
+  $('#marathon_Date').datepicker({
+  	dateFormat: "yy-mm-dd"
+  });
 });
+
+

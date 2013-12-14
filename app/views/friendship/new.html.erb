@@ -9,6 +9,7 @@
     </div>
 </div>
 <div id="content">
+	
 <%= form_tag(:controller => "friendship", :action => "search") do %>
 	<%= label_tag(:search_email, "Search friend: ") %>
 	<%= text_field_tag :search_email, nil, :placeholder => "Email address" %>
@@ -27,7 +28,7 @@
 		<td><%= result.first_name %></td>
 		<td><%= result.last_name %></td>
 		<td><%= result.email %></td>
-		<td><%= link_to "Add friend", {:controller => :friendship, :action => :create, :friend_id => result.id, :method => :post} %></td>
+		<td><%= link_to "Send a friend request", {:controller => :friendship, :action => :request_friend, :friend_id => result.id, :method => :post} %></td>
 	</tr>
 	<% end %>
 </table>

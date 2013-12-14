@@ -1,0 +1,26 @@
+<h1>News from the Running Community</h1>
+
+<h3>From <%= @feed.title %></h3>
+<div class="container">
+	<ul class="unstyled">
+		<%@entries.each do |e|%>
+			<li style="margin-bottom:8px;">
+				<h4><%= e.title%></h4>
+				<div class="row">
+					<div class="span1">
+						<img src=<%= e.image %> style="margin-left:30px;">
+					</div>
+					<div class="span10">
+						<p>
+							<%=e.summary%>
+							<br>
+							<small><strong>
+								<a href=<%= e.url %> class="inline">Read Full Article</a>
+							</small></strong>
+						</p>
+					</div>
+				</div>
+			</li>		
+		<%end%>
+	</ul>
+</container>

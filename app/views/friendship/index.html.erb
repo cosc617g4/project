@@ -10,19 +10,41 @@
 </div>
 <div id="content">
 <table>
-<tr>
-	<th>First name</th>
-	<th>Last name</th>
-	<th>Email</th>
-</tr>
+<h2> Requests list</h2>
+	<tr>
+		<th>First name</th>
+		<th>Last name</th>
+		<th>Email</th>
+		<th></th>
+		<th></th>
+	</tr>
+	
+	<% for request in @requests %>
+	<tr>
+		<td><%= request.first_name %></td>
+		<td><%= request.last_name %></td>
+		<td><%= request.email %></td>
+		<td><%= link_to "Confirm", {:controller => :friendship, :action => :confirm, :r_id => request.id} %></td>
+		<td><%= link_to "Decline", {:controller => :friendship, :action => :decline, :r_id => request.id} %></td>
+	</tr>
+	<% end %>
 
-<% for friend in @friends %>
-<tr>
-	<td><%= friend.first_name %></td>
-	<td><%= friend.last_name %></td>
-	<td><%= friend.email %></td>
-</tr>
-<% end %>
-
+</table>
+<table>
+	<h2> Friends list</h2>
+	<tr>
+		<th>First name</th>
+		<th>Last name</th>
+		<th>Email</th>
+	</tr>
+	
+	<% for friend in @friends %>
+	<tr>
+		<td><%= friend.first_name %></td>
+		<td><%= friend.last_name %></td>
+		<td><%= friend.email %></td>
+	</tr>
+	<% end %>
+	
 </table>
 </div>

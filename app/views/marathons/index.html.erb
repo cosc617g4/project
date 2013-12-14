@@ -46,7 +46,12 @@
 						<span>
 							<%= mar.distance %>
 						</span>
-						</li>					
+						</li>	
+						<li>
+							<span class="marathonAddUser">
+								<%= link_to 'I ran this marathon', :controller => 'user_marathons', :action => :new, :marathon => mar.id %>
+							</span>
+						</li>				
 				</ul>
 			</div>
 
