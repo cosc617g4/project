@@ -7,4 +7,6 @@ class Marathon < ActiveRecord::Base
     
     has_many :user_marathons
     has_many :users, :through => :user_marathons
+    
+    acts_as_indexed :fields => [:name, :city, :state, :country, :distance]
 end
