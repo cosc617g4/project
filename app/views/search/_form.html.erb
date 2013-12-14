@@ -1,15 +1,13 @@
 <%= form_tag("/search", method: "get", :class => "form-search") do %>
   <%= select_tag(:search_var,options_for_select([['Bib', 1], ['Marathon', 2]]))%>
   <div class="inline" style="display:inline;">
-<<<<<<< HEAD
+
  	<%= text_field_tag(:textval) %>
  	  
   <%= submit_tag("Search", :class => "btn inline", :style => "margin-bottom:5px;") %>
-=======
+
  	
- 	<%= text_field_tag(:textval) %>
-  <%= submit_tag("Search") %>
->>>>>>> 786c3de4fe2b9734582b44d459ba268bdba0d6ca
+
   </div>
 <% end %>
 
