@@ -13,14 +13,25 @@
     <%end%>    
     
     <% elsif @searchvar == "2"%>
-       Your search for marathon 
-       <%= @marathons.each do |marathon| %>
-         <%= marathon.name%>
-         
-         <% @found =1 %>
-       <%end%>
-    
-      
+        <% @marathons.each do |marathon| %>
+        <table>
+         <tr>
+         	<th>Name</th>
+         	<th>City</th>
+         	<th>State</th>
+         	<th>Country</th>
+         	<th>Distance</th>
+         </tr>
+         <tr>
+           <td><%= marathon.name %></td>
+           <td><%= marathon.city %></td>
+           <td><%= marathon.state %></td>
+           <td><%= marathon.country %></td> 
+           <td><%= marathon.distance %></td>
+          </tr>
+       </table>
+         <%end%>
+         <%@found = 1 %>
 <%end%>
 
 
