@@ -1,5 +1,10 @@
-<%= form_tag("/search", method: "get") do %>
+<%= form_tag("/search", method: "get", :class => "form-search") do %>
   <%= select_tag(:search_var,options_for_select([['Bib', 1], ['Marathon', 2]]))%>
-  <%= text_field_tag(:textval) %>
-  <%= submit_tag("Search") %>
+  <div class="inline" style="display:inline;">
+ 	<input id="<%=:textval%>" placeholder="Enter search text" class="input-medium search-query" >
+ 	  
+  <%= submit_tag("Search", :class => "btn inline", :style => "margin-bottom:5px;") %>
+  </div>
 <% end %>
+
+
