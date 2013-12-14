@@ -14,7 +14,7 @@
     
     <% elsif @searchvar == "2"%>
        Your search for marathon 
-       <%= @marathons.each do |marathon| %>
+       <% @marathons.each do |marathon| %>
          <%= marathon.name%>
          
          <% @found =1 %>
