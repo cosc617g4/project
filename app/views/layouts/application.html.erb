@@ -18,15 +18,15 @@
 				<a href="http://0.0.0.0:3000/"><%= image_tag("logo.png") %></a>
 				
 					<% if user_signed_in? %>
-					<span>Hello <%= current_user.first_name %>
+					<span style="float:right;">Hello <%= current_user.first_name %>
 						<%= link_to('Sign Out', destroy_user_session_path, :method => 'delete') %></span>
 					<% else %>
-					<span><%= link_to('Sign In', new_user_session_path) %></span>
+					<span style="float:right;"><%= link_to('Sign In', new_user_session_path) %></span>
 					<% end %>
 				
-				<ul>
+				<div style="display:inline-block; float:right;">
 					<br><%= render '/search/form'%>
-				</ul>
+				</div>
 			</div>
 
 			<div id="sidebar">
@@ -61,6 +61,8 @@
 		<p>
 			<%= params[:alert] %>
 		</p>
+		
+		
 
 	</body>
 </html>
