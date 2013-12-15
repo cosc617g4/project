@@ -28,6 +28,12 @@ $('#training_date').datepicker();
   $('#marathon_Date').datepicker({
   	dateFormat: "yy-mm-dd"
   });
+  
+  $('#user_dob').datepicker({
+  	dateFormat: "yy-mm-dd"
+  });
 });
+
+
 
 

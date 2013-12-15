@@ -8,6 +8,9 @@ class Post < ActiveRecord::Base
   
   column :updated_at, :date
   column :message, :string
-  column :photo_file_name, :string
+  column :photo_id, :int
+  column :user_id, :int
+  column :friend_id, :int
+  
   #attr_accessible :updated_at, :message, :photo_file_name
 end

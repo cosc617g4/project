@@ -1,16 +1,17 @@
 <div id="no_sidebar"></div>
 <div id="content">
+
 	<h2>Profile</h2>
 	<table>
 		<tr>
 			<td ><h4>Name</h4></td>
-			<td><%= @user.first_name %> <%= @user.last_name %></td>
-			<td><%= link_to "Edit" %></td>
+			<td><%= @user.fullname %></td>
+			<td><% if current_user.id == @user.id %><%= link_to "Edit" %><% end %></td>
 		</tr>
 		<tr>
 			<td><h4>Email</h4></td>
 			<td><%= @user.email %></td>
-			<td><%= link_to "Edit" %></td>
+			<td><% if current_user.id == @user.id %><%= link_to "Edit" %><% end %></td>
 		</tr>
 		<tr>
 			<h4>Profile Picture</h4>
@@ -18,8 +19,8 @@
 			<% @photos.each do |photo| %>
 			<% if photo.id == current_user.default_photo_id%>
 			<% @found = 1 %>
-			<%= link_to (image_tag (photo.userphoto.url), :style => "width: 2000px; height: 200px;"), photo %>
-			<%= link_to 'Change', myphotos_photos_path%>
+			<%= link_to (image_tag (photo.userphoto.url(:small))), photo %>
+			<% if current_user.id == @user.id %><%= link_to 'Change', myphotos_photos_path%><% end %>
 			<%end%>
 			<%end%>
 
@@ -43,10 +44,11 @@
 		<tr class="postrow">
 			<td class="postcell"> <%= post.updated_at %> </td>
 
-			<td class="postcell"> <%= post.message %> </td>
+			<td class="postcell"> <%== post.message %> </td>
 
-			<td class="postcell"> <% if post.photo_file_name != nil %>
-			<%= image_tag (post.photo_file_name)%>
+			<td class="postcell"> <% if post.photo_id != nil %>
+			<% photo = Photo.find(post.photo_id) %>
+			<%= link_to (image_tag (photo.userphoto.url(:small))), photo %>
 			<% end %> </td>
 		</tr>
 		<% end %>

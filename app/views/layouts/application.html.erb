@@ -12,47 +12,49 @@
 		"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
 
 	</head>
-	<body>		
+	<body>
 		<div id="mainPan">
 			<div id="topPan">
 				<a href="http://0.0.0.0:3000/"><%= image_tag("logo.png") %></a>
-				
-					<% if user_signed_in? %>
-					<span style="float:right;">Hello <%= current_user.first_name %>
-						<%= link_to('Sign Out', destroy_user_session_path, :method => 'delete') %></span>
-					<% else %>
-					<span style="float:right;"><%= link_to('Sign In', new_user_session_path) %></span>
-					<% end %>
-				
+
+				<% if user_signed_in? %>
+				<span style="float:right;">Hello <%= current_user.first_name %>
+					<%= link_to('Sign Out', destroy_user_session_path, :method => 'delete') %></span>
+				<% else %>
+				<span style="float:right;"><%= link_to('Sign In', new_user_session_path) %></span>
+				<% end %>
+
 				<div style="display:inline-block; float:right;">
-					<br><%= render '/search/form'%>
+					<br>
+					<%= render '/search/form'%>
 				</div>
 			</div>
 
+			<% if  user_signed_in?%>
 			<div id="sidebar">
-			  <ul>
-			    <li>
-			      <%= link_to 'Home' , root_path %>
-			    </li>
-			    <li>
-			      <%= link_to 'Photos', photos_path %>
-			    </li>
-			    <li>
-			      <%= link_to "Friends", {controller: "friendship", action: "index"} %>
-			    </li>
-			    <li>
-			      <%= link_to('Event') %>
-			    </li>
-			    <li>
-			      <%= link_to 'Inbox', messages_path %>
-			    </li>
-			  </ul>
-			  </div>
+				<ul>
+					<li>
+						<%= link_to 'Home' , root_path %>
+					</li>
+					<li>
+						<%= link_to 'Photos', photos_path %>
+					</li>
+					<li>
+						<%= link_to "Friends", {controller: "friendship", action: "index"} %>
+					</li>
+					<li>
+						<%= link_to('Event') %>
+					</li>
+					<li>
+						<%= link_to 'Inbox', messages_path %>
+					</li>
+				</ul>
+			</div>
+			<% end %>
 
 			<%= yield %>
 
 		</div>
-		
 
 		<p class="notice">
 			<%= notice %>
@@ -61,8 +63,6 @@
 		<p>
 			<%= params[:alert] %>
 		</p>
-		
-		
 
 	</body>
 </html>
