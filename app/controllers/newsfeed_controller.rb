@@ -18,6 +18,7 @@ require 'feedzirra'
       friendIDs.push(friendship.friend_id)
     end
 
+    #get all the marathons that friends ran
     usermarathons = UserMarathon.where(:user_id => friendIDs)
     usermarathons.each do |um|
       marathon = Marathon.find(um.marathon_id)
@@ -42,6 +43,7 @@ require 'feedzirra'
       tempPosts.push(post)
     end
 
+    #get all the recently formed friendships
     friendships = Friendship.where(:user_id => friendIDs)
     friendships.each do |friendship|
 
@@ -63,6 +65,7 @@ require 'feedzirra'
       tempPosts.push(post)
     end
 
+    #get all the recently added photos by friends
     photos = Photo.where(:user_id => friendIDs)
     photos.each do |photo|
 
@@ -83,8 +86,8 @@ require 'feedzirra'
 
           commenter = User.find(comment.user_id)
 
-          message = "<a href=\"/profile/index?user_id=" + commenter.id.to_s + "\">" + commenter.fullname + "</a> commented on " + friend.fullname + "'s photo.</br>" +
-          comment.message
+          message = "<a href=\"/profile/index?user_id=" + commenter.id.to_s + "\">" + commenter.fullname + "</a> commented on <a href=\"/profile/index?user_id=" + friend.id.to_s + "\">" + friend.fullname +
+          "</a>'s photo.</br>" + comment.message
 
           post = Post.new
         post.updated_at = comment.updated_at
@@ -94,6 +97,27 @@ require 'feedzirra'
         tempPosts.push(post)
         end
       end
+
+    end
+
+    #get all the comments of friends
+    comments = Comment.where(:user_id => friendIDs)
+    comments.each do |comment|
+
+      commenter = User.find(comment.user_id)
+      photo = Photo.find(comment.photo_id)
+      photosOwner = User.find(photo.id)
+
+      message = "<a href=\"/profile/index?user_id=" + commenter.id.to_s + "\">" + commenter.fullname + "</a> commented on <a href=\"/profile/index?user_id=" + photosOwner.id.to_s + "\">" + photosOwner.fullname + "</a>.</br>" + comment.message
+
+      post = Post.new
+      post.updated_at = comment.updated_at
+      post.message = message
+      post.photo_id = photo.id
+      post.user_id = commenter.id
+      post.friend_id = photosOwner.id
+
+      tempPosts.push(post)
 
     end
 

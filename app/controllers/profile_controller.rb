@@ -113,7 +113,7 @@ class ProfileController < ApplicationController
       comments.each do |comment|
 
         photo = Photo.find(comment.photo_id)
-        photosOwner = User.find(photo.id)
+        photosOwner = User.find(photo.user_id)
 
         message = users_fullname + "  commented on <a href=\"/profile/index?user_id=" + photosOwner.id.to_s + "\">" + photosOwner.fullname + "</a>.</br>" + comment.message
 
