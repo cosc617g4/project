@@ -9,6 +9,7 @@ class PhotosController < ApplicationController
       redirect_to new_user_session_path
     else
       @photos = Photo.all
+      @userphotos = Userphotos.all
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @photos }
@@ -64,7 +65,8 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
+        @userphoto = Userphotos.create(userid:current_user.id,photoid:@photo.id) 
+        format.html { redirect_to @photo, notice: @photo.id  }
         format.json { render json: @photo, status: :created, location: @photo }
       else
         format.html { render action: "new" }
@@ -103,6 +105,7 @@ class PhotosController < ApplicationController
     redirect_to profile_index_path
   end
   
+ 
   
   
 
@@ -111,7 +114,10 @@ class PhotosController < ApplicationController
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
-
+ 
+    @photoid = params[:id]
+    Userphotos.where(:photoid => @photoid).destroy_all
+    
     respond_to do |format|
       format.html { redirect_to photos_url }
       format.json { head :no_content }
