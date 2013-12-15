@@ -1,21 +1,23 @@
 <h1>News from the Running Community</h1>
 
-<h3>From <%= @feed.title %></h3>
 <div class="container">
 	<ul class="unstyled">
-		<%@entries.each do |e|%>
+		<%@posts.each do |post|%>
 			<li style="margin-bottom:8px;">
-				<h4><%= e.title%></h4>
 				<div class="row">
 					<div class="span1">
-						<img src=<%= e.image %> style="margin-left:30px;">
+						<!--<img src=< e.image %> style="margin-left:30px;">-->
+						<% if post.photo_id != nil %>
+						<% photo = Photo.find(post.photo_id) %>
+						<%= link_to (image_tag (photo.userphoto.url(:small))), photo %>						
+						<% end %>
 					</div>
 					<div class="span10">
 						<p>
-							<%=e.summary%>
+							<%== post.message %>
 							<br>
 							<small><strong>
-								<a href=<%= e.url %> class="inline">Read Full Article</a>
+								<%= post.updated_at %>
 							</small></strong>
 						</p>
 					</div>
