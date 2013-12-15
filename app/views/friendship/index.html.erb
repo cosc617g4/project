@@ -1,16 +1,10 @@
-<div id="sidebar">
-	<h2>Friends</h2>
-    <div class="sidemenu">
-      <ul>
-        <li><%= link_to "Add friend", {:action => "new"}%></li>
-        <li><%= link_to "Delete friend", {:action => "show"}%></li>
-        <li><%= link_to "Friend list", {:action => "index"}%></li>
-      </ul>
-    </div>
-</div>
+<%= link_to "Add friend", {:action => "new"}%>
+<%= link_to "Delete friend", {:action => "show"}%>
+<%= link_to "Friend list", {:action => "index"}%>
 <div id="content">
-<table>
 <h2> Requests list</h2>
+<table>
+
 	<tr>
 		<th>First name</th>
 		<th>Last name</th>
@@ -30,8 +24,9 @@
 	<% end %>
 
 </table>
-<table>
 	<h2> Friends list</h2>
+<table>
+
 	<tr>
 		<th>First name</th>
 		<th>Last name</th>

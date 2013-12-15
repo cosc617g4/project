@@ -1,0 +1,24 @@
+<h1>
+  <%= current_user.first_name %> Photo Collection
+</h1>
+
+<table>
+<% @myalbum.each do |myphoto| %>
+   <% if myphoto.userid == current_user.id%>
+
+     <% @photo = Photo.find(myphoto.photoid)%>
+     <% if @photo != nil%>
+       <tr>
+       <td></td><%= link_to (image_tag (@photo.userphoto.url(:small))),@photo %></td>
+       </tr>
+     <%end%>
+   <%end%> 
+  
+  
+<%end%>
+
+
+</table>
+ <br />
+ <br />
+ <%= link_to 'Home', root_path %>

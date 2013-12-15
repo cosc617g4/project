@@ -8,6 +8,8 @@
 
 <table>
 <% @photos.each do |photo| %>
+
+<%@added = "false"%>
   <tr>
     
     
@@ -18,7 +20,24 @@
     <% else %>
         <% uploadby=User.find(photo.user_id) %>
         <td> Uploaded by: <%= uploadby.first_name %> </td>
-    <%end%>
+        
+        
+        <% @userphotos.each do |ph| %>
+          <% if(ph.photoid == photo.id && ph.userid == current_user.id)%>
+             <%@added="true"%>
+          <%end%>
+        <%end%>
+        
+        <%if @added == "false"%>
+          <td><%= link_to 'Add to Album', userphotos_userphoto_path(:photoid=>photo.id, :userid=>photo.user_id)%>
+        <%end%>
+
+   <%end%>
+        
+        
+        
+        
+        
   </tr>
 <% end %>
 </table>

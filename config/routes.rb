@@ -1,6 +1,9 @@
 Marathonrunnerphotos::Application.routes.draw do
 
   
+  get "userphotos/userphoto"
+  get "userphotos/my_album"
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -80,6 +83,9 @@ Marathonrunnerphotos::Application.routes.draw do
     end
   end
   
+  get "userphotos/userphoto"
+  post "userphotos/userphoto"
+  
   resources :trainings
 
 
@@ -103,6 +109,7 @@ Marathonrunnerphotos::Application.routes.draw do
   resources :messages
   
   get 'admins/', to: 'admins#index'
+
   
 
   # get 'admins/marathon', to: 'admins#marathon'
