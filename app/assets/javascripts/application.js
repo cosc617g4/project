@@ -12,28 +12,25 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all 
+//= require jquery.ui.all
 //= require twitter/bootstrap
 //= require_tree .
 
-
-
 $(function() {
-  // $('#training_date').datepicker({
-  // 	dateFormat: "yy-mm-dd"
-  // });
+	// $('#training_date').datepicker({
+	// 	dateFormat: "yy-mm-dd"
+	// });
 
-$('#training_date').datepicker();
+	$('#training_date').datepicker({
+		dateFormat : "yy-mm-dd"
+	});
 
-  $('#marathon_Date').datepicker({
-  	dateFormat: "yy-mm-dd"
-  });
-  
-  $('#user_dob').datepicker({
-  	dateFormat: "yy-mm-dd"
-  });
+	$('#marathon_Date').datepicker({
+		dateFormat : "yy-mm-dd"
+	});
+
+	$('#user_dob').datepicker({
+		dateFormat : "yy-mm-dd"
+	});
 });
-
-
-
 

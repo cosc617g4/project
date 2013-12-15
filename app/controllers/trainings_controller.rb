@@ -44,15 +44,17 @@ class TrainingsController < ApplicationController
     @training = Training.new(params[:training])
     @training.user_id = current_user.id
 
+    #datestring = @training.date.strftime("%m/%d/%Y") 
+
     respond_to do |format|
       if @training.save
         string = "Training was successfully created."
-        string << @training.date
+        string << @training.date.strftime("%m/%d/%Y") 
         
         format.html { redirect_to trainings_path, notice: string}
       else
         format.html { render action: "new" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.json { render json: @training.errors, status: :unprocessable_entity }
       end
     end
   end

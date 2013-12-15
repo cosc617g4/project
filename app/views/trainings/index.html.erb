@@ -16,7 +16,7 @@
 
 	<% @trainings.each do |training| %>
 	<tr>
-		<td> <%= training.date %> </td>
+		<td> <%= training.date.strftime("%a %m/%d/%Y") %> </td>
 
 		<!-- Need to perform a check to see if the minutes are less than 10. If they are we must add a 0 to before the training.minutes 
 			so that it will display as 1:04 instead of 1:4 -->
