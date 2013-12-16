@@ -1,0 +1,50 @@
+<p id="notice">
+	<%= notice %>
+</p>
+
+<table>
+	<tr>
+		<td>Name:</td>
+		<td colspan="5"><%= @marathon.name %></td>
+		<td>Date:</td>
+		<td><%= @marathon.Date.strftime("%a %m/%d/%Y") %></td>
+	</tr>
+
+	<tr>
+		<td>State:</td><td><%= @marathon.state %></td>
+		<td>City:</td><td><%= @marathon.city %></td>
+		<td>Country:</td><td><%= @marathon.country %></td>
+		<td>Distance:</td><td><%= @marathon.distance %></td>
+	</tr>
+</table>
+
+
+<h3>Runners</h3>
+<% runners = @marathon.users %>
+<% runners.each do |runner| %>
+
+<% photo = nil %>
+<% if runner.default_photo_id != nil %>
+<% photo = Photo.find(runner.default_photo_id) %>
+<% end %>
+<div class="container">
+	<ul class="unstyled">
+		<li style="margin-bottom:8px;">
+			<div class="row">
+				<div class="span1">
+					<% if photo != nil %>
+					<%= link_to (image_tag (photo.userphoto.url(:small))), photo %>
+					<% end %>
+				</div>
+				<div class="span10">
+					<p>
+						<%= link_to runner.fullname, profile_index_path(:user_id => runner.id) %>
+						<br>
+
+					</p>
+				</div>
+			</div>
+		</li>
+		<%end%>
+	</ul>
+	</container>

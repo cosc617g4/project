@@ -3,26 +3,24 @@
 <div class="container">
 	<ul class="unstyled">
 		<%@posts.each do |post|%>
-			<li style="margin-bottom:8px;">
-				<div class="row">
-					<div class="span1">
-						<!--<img src=< e.image %> style="margin-left:30px;">-->
-						<% if post.photo_id != nil %>
-						<% photo = Photo.find(post.photo_id) %>
-						<%= link_to (image_tag (photo.userphoto.url(:small))), photo %>						
-						<% end %>
-					</div>
-					<div class="span10">
-						<p>
-							<%== post.message %>
-							<br>
-							<small><strong>
-								<%= post.updated_at %>
-							</small></strong>
-						</p>
-					</div>
+		<li style="margin-bottom:8px;">
+			<div class="row">
+				<div class="span1">
+					<!--<img src=< e.image %> style="margin-left:30px;">-->
+					<% if post.photo_id != nil %>
+					<% photo = Photo.find(post.photo_id) %>
+					<%= link_to (image_tag (photo.userphoto.url(:small))), photo %>
+					<% end %>
 				</div>
-			</li>		
+				<div class="span10">
+					<p>
+						<%== post.message %>
+						<br>
+						<small><strong> <%= post.updated_at %> </small></strong>
+					</p>
+				</div>
+			</div>
+		</li>
 		<%end%>
 	</ul>
-</container>
+	</container>

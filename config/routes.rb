@@ -40,7 +40,7 @@ Marathonrunnerphotos::Application.routes.draw do
 
   resources :comments
 
-
+  resources :marathons
   # for friend function
   get "friendship/index"
   get "friendship/new"
