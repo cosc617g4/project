@@ -58,7 +58,11 @@ class NewsfeedController < ApplicationController
 
         post.updated_at = friendship.updated_at
         post.message = message
-        post.photo_id = friendOfFriend.default_photo_id
+
+        if !Photo.where(:id => friendOfFriend.default_photo_id).blank?
+          post.photo_id = friendOfFriend.default_photo_id
+        end
+        
         post.user_id = friend.id
         post.friend_id = friend.id
 

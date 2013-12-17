@@ -54,6 +54,7 @@ class PhotosController < ApplicationController
   def edit
   if user_signed_in?
     @photo = Photo.find(params[:id])
+    @marathons = current_user.marathons
    else
      redirect_to "/users/sign_in" 
    end  
