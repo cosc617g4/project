@@ -3,7 +3,8 @@
 <% redirect_to new_user_session_path %>
 <% end %>
 
-<table border="1" cellpadding="2">
+<%= link_to 'Add New Training Entry', new_training_path %>
+<table>
 	<!-- add table headers -->
 	<tr>
 		<th>Date</th>
@@ -36,4 +37,3 @@
 	<% end %>
 </table>
 
-<%= link_to 'Add New Training Entry', new_training_path %>
