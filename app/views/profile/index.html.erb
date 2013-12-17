@@ -30,22 +30,6 @@
 			You do not have default photo. Please select the default photo using this link
 		</tr>
 
-		<%end%>
-
-		<h4>Profile Picture</h4>
-		<% @photos = Photo.all %>
-		<% @photos.each do |photo| %>
-		<% if photo.id == current_user.default_photo_id%>
-		<% @found = 1 %>
-		<%= link_to (image_tag (photo.userphoto.url(:small))), photo %>
-		<% if current_user.id == @user.id %><%= link_to 'Change', myphotos_photos_path%><% end %>
-		<%end%>
-		<%end%>
-
-		<% if @found != 1 %>
-		<tr>
-			You do not have default photo. Please select the default photo using this link
-		</tr>
 		<tr>
 			<%= link_to 'My photos', myphotos_photos_path %>
 		</tr>
