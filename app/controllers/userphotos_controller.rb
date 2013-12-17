@@ -18,4 +18,12 @@ class UserphotosController < ApplicationController
      redirect_to "/users/sign_in" 
    end
   end
+  
+  
+  def setdefaultphoto
+    @photo = Photo.find(params[:photoid])
+    User.where(:id=>current_user.id).update_all(:default_photo_id => @photo)
+    redirect_to profile_index_path
+  end
+  
 end

@@ -3,6 +3,7 @@ Marathonrunnerphotos::Application.routes.draw do
   
   get "userphotos/userphoto"
   get "userphotos/my_album"
+  get "userphotos/setdefaultphoto"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
