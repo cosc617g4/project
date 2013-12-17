@@ -11,6 +11,9 @@ class MarathonsController < ApplicationController
   
   def show
     @marathon = Marathon.find(params[:id])
+    
+    @photos = @marathon.photos
+        
   end
 
   def add

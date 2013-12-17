@@ -38,6 +38,7 @@ class PhotosController < ApplicationController
   def new
     if user_signed_in?
       @photo = Photo.new
+      @marathons = current_user.marathons
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @photo }
