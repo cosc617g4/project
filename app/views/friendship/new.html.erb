@@ -1,4 +1,6 @@
 <%= link_to "Add friend", {:action => "new"}%>
+<%= link_to "Delete friend", {:action => "show"}%>
+<%= link_to "Friend list", {:action => "index"}%>
 <div id="content">
 	
 <%= form_tag(:controller => "friendship", :action => "search") do %>
