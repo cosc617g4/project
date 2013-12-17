@@ -14,7 +14,7 @@
 	<% @marathons.each do |mar| %>
 		<li>
 			<h3>
-				<%= mar.name %>
+				<%= link_to mar.name, marathon_path(mar) %>
 			</h3>
 			<div>
 				<ul>
