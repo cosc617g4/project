@@ -106,7 +106,7 @@ class NewsfeedController < ApplicationController
 
         commenter = User.find(comment.user_id)
         photo = Photo.find(comment.photo_id)
-        photosOwner = User.find(photo.id)
+        photosOwner = User.find(photo.user_id)
 
         message = "<a href=\"/profile/index?user_id=" + commenter.id.to_s + "\">" + commenter.fullname + "</a> commented on <a href=\"/profile/index?user_id=" + photosOwner.id.to_s + "\">" + photosOwner.fullname + "</a>.</br>" + comment.message
 
