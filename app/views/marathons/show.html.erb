@@ -34,12 +34,13 @@
 	<% if counter == 0%>
 	<tr>
 		<%end%>
-		<% if photo != nil %>
+
+		<td> <% if photo != nil %>
 		<%= link_to (image_tag (photo.userphoto.url(:small))), photo %>
 		</br>
 		<% end %>
 
-		<%= link_to runner.fullname, profile_index_path(:user_id => runner.id) %>
+		<%= link_to runner.fullname, profile_index_path(:user_id => runner.id) %> </td>
 
 		<% if counter == 2 %>
 	</tr>
@@ -60,7 +61,12 @@
 	<tr>
 		<%end%>
 
-		<td><%= link_to (image_tag (photo.userphoto.url(:small))), photo %></td>
+		<td><%= link_to (image_tag (photo.userphoto.url(:small))), photo %>
+			</br>
+			<% owner = photo.user %>
+			Uploaded by: <%= link_to owner.fullname, profile_index_path(:user_id => owner.id) %>
+			
+		</td>
 
 		<% if counter == 2 %>
 	</tr>
