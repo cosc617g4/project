@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+	<div id="marathondropdown">
+		<%= f.label :marathon_id, 'Please select the marathon the image was taken at:' %>
+		<%= f.collection_select :marathon_id, @marathons, :id, :name, :prompt => "Select a Marathon" %>
+		
+	</div>
   <div class="field">
   	<%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.label :upload %><br />

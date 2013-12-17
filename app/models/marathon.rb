@@ -4,7 +4,8 @@ class Marathon < ActiveRecord::Base
 
     validates :name, :city, :state, :country, :distance, presence: true
     validates :name, uniqueness: true
-    
+
+    has_many :photos    
     has_many :user_marathons
     has_many :users, :through => :user_marathons
     

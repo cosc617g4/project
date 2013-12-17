@@ -10,10 +10,10 @@
 	</tr>
 	
 	<% @usermarathons.each do |um| %>
-	<% temp = um.marathon %>
+	<% mar = um.marathon %>
 	<tr>
-		<td><%= temp.name %></td>
-		<td><%= temp.Date %></td>
+		<td><%= link_to mar.name, marathon_path(mar) %></td>
+		<td><%= mar.Date %></td>
 		<td>
 			<%= um.hours%>:
 			<% if (um.minutes < 10) %>

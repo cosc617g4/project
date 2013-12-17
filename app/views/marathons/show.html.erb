@@ -18,33 +18,56 @@
 	</tr>
 </table>
 
-
 <h3>Runners</h3>
-<% runners = @marathon.users %>
-<% runners.each do |runner| %>
+<table>
+	<% runners = @marathon.users %>
 
-<% photo = nil %>
-<% if runner.default_photo_id != nil %>
-<% photo = Photo.find(runner.default_photo_id) %>
-<% end %>
-<div class="container">
-	<ul class="unstyled">
-		<li style="margin-bottom:8px;">
-			<div class="row">
-				<div class="span1">
-					<% if photo != nil %>
-					<%= link_to (image_tag (photo.userphoto.url(:small))), photo %>
-					<% end %>
-				</div>
-				<div class="span10">
-					<p>
-						<%= link_to runner.fullname, profile_index_path(:user_id => runner.id) %>
-						<br>
+	<% counter = 0 %>
 
-					</p>
-				</div>
-			</div>
-		</li>
+	<% runners.each do |runner| %>
+
+	<% photo = nil %>
+	<% if runner.default_photo_id != nil %>
+	<% photo = Photo.find(runner.default_photo_id) %>
+	<% end %>
+
+	<% if counter == 0%>
+	<tr>
 		<%end%>
-	</ul>
-	</container>
+		<% if photo != nil %>
+		<%= link_to (image_tag (photo.userphoto.url(:small))), photo %>
+		</br>
+		<% end %>
+
+		<%= link_to runner.fullname, profile_index_path(:user_id => runner.id) %>
+
+		<% if counter == 2 %>
+	</tr>
+	<% counter = 0 %>
+	<% else %>
+	<% counter += 1%>
+	<%end%>
+	<%end%>
+
+</table>
+
+<h3>Photos</h3>
+<table>
+	<% counter = 0 %>
+	<% @photos.each do |photo| %>
+
+	<% if counter == 0%>
+	<tr>
+		<%end%>
+
+		<td><%= link_to (image_tag (photo.userphoto.url(:small))), photo %></td>
+
+		<% if counter == 2 %>
+	</tr>
+	<% counter = 0 %>
+	<% else %>
+	<% counter += 1%>
+	<%end%>
+	<%end%>
+</table>
+
