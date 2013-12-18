@@ -28,8 +28,10 @@
 
 	<% photo = nil %>
 	<% if runner.default_photo_id != nil %>
+	<%if !Photo.where(:id => runner.default_photo_id).blank?%>
+
 	<% photo = Photo.find(runner.default_photo_id) %>
-	<% end %>
+	<% end %><% end %>
 
 	<% if counter == 0%>
 	<tr>
@@ -62,11 +64,9 @@
 		<%end%>
 
 		<td><%= link_to (image_tag (photo.userphoto.url(:small))), photo %>
-			</br>
-			<% owner = photo.user %>
-			Uploaded by: <%= link_to owner.fullname, profile_index_path(:user_id => owner.id) %>
-			
-		</td>
+		</br>
+		<% owner = photo.user %>
+		Uploaded by: <%= link_to owner.fullname, profile_index_path(:user_id => owner.id) %> </td>
 
 		<% if counter == 2 %>
 	</tr>

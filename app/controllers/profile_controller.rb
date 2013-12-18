@@ -69,7 +69,9 @@ class ProfileController < ApplicationController
 
         post.updated_at = friendship.updated_at
         post.message = message
+        if !Photo.where(:id => friend.default_photo_id).blank?
         post.photo_id = friend.default_photo_id
+        end
         post.user_id = @user.id
         post.friend_id = friend.id
 
